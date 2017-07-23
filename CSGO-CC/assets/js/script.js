@@ -51,7 +51,7 @@ var operationCases = {
   case19: {name: "Chroma 3 Case", price: 0.03, img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsUFJ5KBFZv668FFYynaSdJGhE74y0wNWIw_OlNuvXkDpSuZQmi--SrN-h3gey-Uo6YWmlIoCLMlhplhFFvwI" },
   case20: {name: "Gamma Case", price: 0.03, img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsUFJ5KBFZv668FFYznarJJjkQ6ovjw4SPlfP3auqEl2oBuJB1j--WoY322QziqkdpZGr3IteLMlhpw4RJCv8" },
   case21: {name: "Gamma 2 Case", price: 0.03, img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsVFx5KAVo5PSkKV4xhfGfKTgVvIXlxNPSwaOmMLiGwzgJvJMniO-Zoo_z2wXg-EVvfSmtc78HsNoy" },
-  case22: {name: "Spectrum Case", price: 0.26, img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsUFJ5KBFZv668FFY2nfKadD4U7Y7lwYXexaGlYb3QzjlUvZ0k0ujHptug2VbirkRrNW2md4SLMlhph09hpX0" }
+  // to-do case22: {name: "Spectrum Case", price: 0.26, img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsUFJ5KBFZv668FFY2nfKadD4U7Y7lwYXexaGlYb3QzjlUvZ0k0ujHptug2VbirkRrNW2md4SLMlhph09hpX0" }
 }
 
 var knives = {
@@ -16729,6 +16729,7 @@ $("#caseTab").click(function() {
     $("#inventoryTab").removeClass("active");
 	  $("#bankTab").removeClass("active");
     $("#coinTab").removeClass("active");
+    $(".bank").hide();
     $("#sellCheap").hide();
     $(".upgradeContainer").hide();
 	  $(".bankRightContainer").hide();
@@ -16741,7 +16742,6 @@ $("#caseTab").click(function() {
     if ($(".unboxing").css('display') !== 'block') {
       $(".unboxing").show();
       $(".jackpot").hide();
-	  $(".bank").hide();
     }
   }
 });
@@ -16758,6 +16758,7 @@ $("#inventoryTab").click(function() {
     $(".upgradeContainer").hide();
 	  $(".bankRightContainer").hide();
     $(".jackpotRightContainer").hide();
+    $(".bank").hide();
     $(".inventoryContainer").show();
     $(".caseContainer").hide();
     $(".coinContainer").hide();
@@ -16766,7 +16767,6 @@ $("#inventoryTab").click(function() {
     if ($(".unboxing").css('display') !== 'block') {
       $(".unboxing").show();
       $(".jackpot").hide();
-	  $(".bank").hide();
     }
   }
 });
@@ -16792,7 +16792,7 @@ $("#bankTab").click(function() {
     if ($(".unboxing").css('display') == 'block' || $(".jackpot").css('display') !== 'none') {
       $(".unboxing").hide();
       $(".jackpot").hide();
-	  $(".bank").show();
+	    $(".bank").show();
     }
   }
 });
@@ -16806,6 +16806,7 @@ $("#upgradeTab").click(function() {
     $("#inventoryTab").removeClass("active");
     $("#coinTab").removeClass("active");
     $("#sellCheap").hide();
+    $(".bank").hide();
     $(".upgradeContainer").show();
 	  $(".bankRightContainer").hide();
     $(".jackpotRightContainer").hide();
@@ -16817,7 +16818,6 @@ $("#upgradeTab").click(function() {
     if ($(".unboxing").css('display') !== 'block') {
       $(".unboxing").show();
       $(".jackpot").hide();
-	  $(".bank").hide();
     }
   }
 });
@@ -16844,7 +16844,7 @@ $("#jackpotTab").click(function() {
       if ($(".unboxing").css('display') == 'block' || $(".bank").css('display') == 'block') {
         $(".unboxing").hide();
         $(".jackpot").show();
-		$(".bank").hide();
+		    $(".bank").hide();
       }
     }
   }
@@ -16858,6 +16858,7 @@ $("#coinTab").click(function() {
     $("#upgradeTab").removeClass("active");
     $("#inventoryTab").removeClass("active");
     $("#caseTab").removeClass("active");
+    $(".bank").hide();
     $("#sellCheap").hide();
     $(".upgradeContainer").hide();
 	  $(".bankRightContainer").hide();
@@ -16870,7 +16871,6 @@ $("#coinTab").click(function() {
     if ($(".unboxing").css('display') !== 'block') {
       $(".unboxing").show();
       $(".jackpot").hide();
-	  $(".bank").hide();
     }
   }
 });
