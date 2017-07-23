@@ -5,7 +5,7 @@ var fps = 60;
 
 var money = 7.50;
 var currentCase = "case1";
-var acceptMoneyPerClick = 0.1;
+var acceptMoneyPerClick = 100;
 
 /*=========================Inventory============================*/
 //In inventory: weap skins
@@ -51,7 +51,8 @@ var operationCases = {
   case19: {name: "Chroma 3 Case", price: 0.03, img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsUFJ5KBFZv668FFYynaSdJGhE74y0wNWIw_OlNuvXkDpSuZQmi--SrN-h3gey-Uo6YWmlIoCLMlhplhFFvwI" },
   case20: {name: "Gamma Case", price: 0.03, img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsUFJ5KBFZv668FFYznarJJjkQ6ovjw4SPlfP3auqEl2oBuJB1j--WoY322QziqkdpZGr3IteLMlhpw4RJCv8" },
   case21: {name: "Gamma 2 Case", price: 0.03, img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsVFx5KAVo5PSkKV4xhfGfKTgVvIXlxNPSwaOmMLiGwzgJvJMniO-Zoo_z2wXg-EVvfSmtc78HsNoy" },
-  // to-do case22: {name: "Spectrum Case", price: 0.26, img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsUFJ5KBFZv668FFY2nfKadD4U7Y7lwYXexaGlYb3QzjlUvZ0k0ujHptug2VbirkRrNW2md4SLMlhph09hpX0" }
+  case22: {name: "Cobblestone Souvenir Package", price: 30.00, img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsVk54LgVDua2sKAIyg6KdTi1Q49G5q4SOqPT2MbfU2DMHvZVw2rnErditjAHg_BFtZGrzI4DBd1VqNF7Y8lPrkurrgZfvv5zXiSw0pM5HQ1o" },
+  // to-do case23: {name: "Spectrum Case", price: 0.26, img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsUFJ5KBFZv668FFY2nfKadD4U7Y7lwYXexaGlYb3QzjlUvZ0k0ujHptug2VbirkRrNW2md4SLMlhph09hpX0" }
 }
 
 var knives = {
@@ -16469,6 +16470,369 @@ case21: {
      }
    }
  },
+ // Cobblestone Souvenir Package
+ case22: {
+     consumer: {
+      weap1: {
+        name: "Souvenir Dual Berettas | Briar FT",
+        
+        price: 0.30,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpos7asPwJf2-r3ZzRM6c-JmYWPnuL5DLfQhGxUpp0o2LzAotmh2gCw-xI5MGCid9XHJgVsZVuB_QW5k-3rjMLvucydzHR9-n51GgElP-8"
+      },
+      weap2: {
+        name: "Souvenir Dual Berettas | Briar MW",
+        
+        price: 0.17,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpos7asPwJf2-r3ZzRM6c-JmImMn-PLP7rDkW4f6sck2r_Hpd6h2Qzg-0A_azj3LNCSegQ3MwyD-le7kOnu1pXtu5qdyWwj5HeoyT8EYw"
+      },
+      weap3: {
+        name: "Souvenir Dual Berettas | Briar FN",
+        
+        price: 0.23,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpos7asPwJf2-r3ZzRM6c-JmImMn-PLP7rDkW4f6sck2r_Hpd6h2Qzg-0A_azj3LNCSegQ3MwyD-le7kOnu1pXtu5qdyWwj5HeoyT8EYw"
+      },
+      weap4: {
+        name: "Souvenir SCAR-20 | Storm BS",
+        
+        price: 0.17,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpopbmkOVUw7ODHTi5W4867kpKEmePLO77QgHJu5MRjjeyPpNj23gXl-xVpYWzyJtDBdw49Zw6C_1C4xei90cW4vZSamHBjvHQq7WGdwUL_g-o0QQ"
+      },
+      weap5: {
+        name: "Souvenir SCAR-20 | Storm WW",
+        
+        price: 0.12,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpopbmkOVUw7ODHTi5W4867kpKEmePLPr7Vn35c18lwmO7Eu470iVKy_BBpYG6mJIaRcAI4aVqF_FK9wLvmhZ7t7ZzJwSY2s3Fw7XjD30vgJf6_CL0"
+      },
+      weap6: {
+        name: "Souvenir SCAR-20 | Storm FT",
+        
+        price: 0.11,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpopbmkOVUw7ODHTi5W4867kpKEmePLPr7Vn35c18lwmO7Eu470iVKy_BBpYG6mJIaRcAI4aVqF_FK9wLvmhZ7t7ZzJwSY2s3Fw7XjD30vgJf6_CL0"
+      },
+      weap7: {
+        name: "Souvenir SCAR-20 | Storm MW",
+        
+        price: 0.30,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpopbmkOVUw7ODHTi5W4867kpKEmePLP7LWnn9u5MRjjeyPpo7wilC2qBdoNjjxddOddwdtNQzSq1G4le7pg5W9vpydyXM26HQl7GGdwUJSn_EJvA"
+      },
+      weap8: {
+        name: "Souvenir SCAR-20 | Storm FN",
+        
+        price: 1.75,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpopbmkOVUw7ODHTi5W4867kpKEmePLP7LWnn9u5MRjjeyPpo7wilC2qBdoNjjxddOddwdtNQzSq1G4le7pg5W9vpydyXM26HQl7GGdwUJSn_EJvA"
+      },
+      weap9: {
+        name: "Souvenir P90 | Storm BS",
+        
+        price: 0.18,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpopuP1FBRv7ODcfi9P6s65mpS0n_L1JaLummpD78A_2evF8NT22wfh-ERuN26hd4LDIA42NwmFrAe4l-fujcO_uZTAz3Vhvj5iuygipUC3jA"
+      },
+      weap10: {
+        name: "Souvenir P90 | Storm WW",
+        
+        price: 0.23,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpopuP1FBRv7ODcfi9P6s65mpS0mvLwOq7cqWdQ-sJ0xOiR9tSk21XkqRVlYmDxIIbAcwVtNFDX-lC7xb290Z-77cmdmiMw6HQ8pSGK2xhc9Z8"
+      },
+      weap11: {
+        name: "Souvenir P90 | Storm FT",
+        
+        price: 0.14,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpopuP1FBRv7ODcfi9P6s65mpS0mvLwOq7cqWdQ-sJ0xOiR9tSk21XkqRVlYmDxIIbAcwVtNFDX-lC7xb290Z-77cmdmiMw6HQ8pSGK2xhc9Z8"
+      },
+      weap12: {
+        name: "Souvenir P90 | Storm MW",
+        
+        price: 0.26,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpopuP1FBRv7ODcfi9P6s65mpS0m_7zO6_ummpD78A_3LnFot-j0QXs_0Y9N2yicIbAd1I2MFnVqFW2yebvgsK175_MmHdk7D5iuyj9-Y1WiA"
+      },
+      weap13: {
+        name: "Souvenir P90 | Storm FN",
+        
+        price: 3.08,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpopuP1FBRv7ODcfi9P6s65mpS0m_7zO6_ummpD78A_3LnFot-j0QXs_0Y9N2yicIbAd1I2MFnVqFW2yebvgsK175_MmHdk7D5iuyj9-Y1WiA"
+      },
+      weap14: {
+        name: "Souvenir MAC-10 | Indigo BS",
+        
+        price: 0.18,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou7umeldfwPz3eDNG5du5q4GFk8jzIb7IqWNU6dNoteXA54vwxge3_0ZoYmjzLYaVcANtZl7S-QC2wu_vhpC16cmczHRguXEisXjcnBSpwUYbsWVgv94"
+      },
+      weap15: {
+        name: "Souvenir MAC-10 | Indigo WW",
+        
+        price: 0.29,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou7umeldfwPz3eDNG5du5q4GFk8jzIb7IqWZU7Mxkh9bN9J7yjRrs80M-Yz-ico-QJlU3NVrR_AK_yensh8K4tJ3IySRhs3Ul4Xzby0Dhn1gSOXV03FDn"
+      },
+      weap16: {
+        name: "Souvenir MAC-10 | Indigo FT",
+        
+        price: 0.20,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou7umeldfwPz3eDNG5du5q4GFk8jzIb7IqWZU7Mxkh9bN9J7yjRrs80M-Yz-ico-QJlU3NVrR_AK_yensh8K4tJ3IySRhs3Ul4Xzby0Dhn1gSOXV03FDn"
+      },
+      weap17: {
+        name: "Souvenir MAC-10 | Indigo MW",
+        
+        price: 0.63,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou7umeldfwPz3eDNG5du5q4GFk8jzIb7IqWdY781lteXA54vwxgzn_UM4Zz32J9edcANtN13S_AW6krzr18Lo6MjPyyc3s3Yl5XqOlhGpwUYbrBhIsUw"
+      },
+      weap18: {
+        name: "Souvenir MAC-10 | Indigo FN",
+        
+        price: 0.67,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou7umeldfwPz3eDNG5du5q4GFk8jzIb7IqWdY781lteXA54vwxgzn_UM4Zz32J9edcANtN13S_AW6krzr18Lo6MjPyyc3s3Yl5XqOlhGpwUYbrBhIsUw"
+      },
+      weap19: {
+        name: "Souvenir UMP-45 | Indigo BS",
+        
+        price: 0.32,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpoo7e1f1JfwPz3eDNG5du5q4GFk8jzIb7IqWNU6dNoteXA54vwxlWx-hY_aj_xJ4-cd1A5NQqB_gPvxbrsgpW975-YnCBjuXEg5X2OzUOpwUYbVdCgv5I"
+      },
+      weap20: {
+        name: "Souvenir UMP-45 | Indigo WW",
+        
+        price: 0.93,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpoo7e1f1JfwPz3eDNG5du5q4GFk8jzIb7IqWZU7Mxkh9bN9J7yjRrjrRJkNmundYDDIwJoMwnZ_ge7l7zmhcDvvpTJyiZn7il24XnamUG0n1gSObNpNGwL"
+      },
+      weap21: {
+        name: "Souvenir UMP-45 | Indigo FT",
+        
+        price: 0.60,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpoo7e1f1JfwPz3eDNG5du5q4GFk8jzIb7IqWZU7Mxkh9bN9J7yjRrjrRJkNmundYDDIwJoMwnZ_ge7l7zmhcDvvpTJyiZn7il24XnamUG0n1gSObNpNGwL"
+      },
+      weap22: {
+        name: "Souvenir UMP-45 | Indigo MW",
+        
+        price: 2.25,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpoo7e1f1JfwPz3eDNG5du5q4GFk8jzIb7IqWdY781lteXA54vwxgO1_0VkZjrwJ4LHJAc-Yg7S_wPvwObpgMLvvJnAy3Fiv3J05SyMmkapwUYbTQC2z4o"
+      },
+      weap23: {
+        name: "Souvenir UMP-45 | Indigo FN",
+        
+        price: 23.41,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpoo7e1f1JfwPz3eDNG5du5q4GFk8jzIb7IqWdY781lteXA54vwxgO1_0VkZjrwJ4LHJAc-Yg7S_wPvwObpgMLvvJnAy3Fiv3J05SyMmkapwUYbTQC2z4o"
+      }
+    },
+    industrial: {
+     weap1: {
+        name: "Souvenir Sawed-Off | Rust Coat BS",
+        
+        price: 0.29,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpopbuyLgNv1fX3cCx9_8izkYy0n_L1JaLummpD78A_ju_E8dT3jA2wrRBoZm71JIbEcVc4YV_R8lXqkrzujJW7u8_AmiBi7z5iuyhvCAhQsg"
+      },
+      weap2: {
+        name: "Souvenir Sawed-Off | Rust Coat WW",
+        
+        price: 0.84,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpopbuyLgNv1fX3cCx9_8izkYy0mvLwOq7cqWdQ-sJ0xL6Y9tit2gDlqkFsZm_0dtKSJANraQvXrlm4wejmh57qucucnHVk7iI8pSGKUnJFp9g"
+      },
+      weap3: {
+        name: "Souvenir Sawed-Off | Rust Coat FT",
+        
+        price: 0.23,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpopbuyLgNv1fX3cCx9_8izkYy0mvLwOq7cqWdQ-sJ0xL6Y9tit2gDlqkFsZm_0dtKSJANraQvXrlm4wejmh57qucucnHVk7iI8pSGKUnJFp9g"
+      },
+      weap4: {
+        name: "Souvenir Sawed-Off | Rust Coat MW",
+        
+        price: 0.23,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpopbuyLgNv1fX3cCx9_8izkYy0m_7zO6_ummpD78A_iLqXpo-ljgWxrhVkYDigI4Scc1A2M17UrlK9ybq80cK0vpzByndjuD5iuyiTvuM2bA"
+      },
+      weap5: {
+        name: "Souvenir Sawed-Off | Rust Coat FN",
+        
+        price: 1.21,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpopbuyLgNv1fX3cCx9_8izkYy0m_7zO6_ummpD78A_iLqXpo-ljgWxrhVkYDigI4Scc1A2M17UrlK9ybq80cK0vpzByndjuD5iuyiTvuM2bA"
+      },
+      weap6: {
+        name: "Souvenir Nova | Green Apple FT",
+        
+        price: 0.39,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpouLWzKjhz3MzPYzhH4uO7kYSCgvrLP7rDkW4fupEo2OuQo4qi2QTk-kc9YjqgIYXHI1Q8ZwvTq1TtwOi-1565tMjBn2wj5Hd_kPf4Uw"
+      },
+      weap7: {
+        name: "Souvenir Nova | Green Apple MW",
+        
+        price: 0.52,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpouLWzKjhz3MzPYzhH4uO6nYeDg8j4MqnWkyVXvscj27qQo4-t2AS2qUJlY2vxIoeXJwJsaF7VrFbqwu_t0J7puMvM1zI97ZcHCheM"
+      },
+      weap8: {
+        name: "Souvenir Nova | Green Apple FN",
+        
+        price: 1.18,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpouLWzKjhz3MzPYzhH4uO6nYeDg8j4MqnWkyVXvscj27qQo4-t2AS2qUJlY2vxIoeXJwJsaF7VrFbqwu_t0J7puMvM1zI97ZcHCheM"
+      },
+      weap9: {
+        name: "Souvenir MAG-7 | Silver MW",
+        
+        price: 2.07,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou7uifDhh3czbeDFU6c6JmImMn-PLP7rDkW4f7sNz273DrN_x0QfkrRVlZmDxJI-SdlNqNV_YqQe4k-3u15K06sjNymwj5HcKKU8-aA"
+      },
+      weap10: {
+        name: "Souvenir MAG-7 | Silver FN",
+        
+        price: 1.07,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou7uifDhh3czbeDFU6c6JmImMn-PLP7rDkW4f7sNz273DrN_x0QfkrRVlZmDxJI-SdlNqNV_YqQe4k-3u15K06sjNymwj5HcKKU8-aA"
+      },
+      weap11: {
+        name: "Souvenir USP-S | Royal Blue BS",
+        
+        price: 2.78,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpoo6m1FBRp3_bGcjhQ09Svq4mFk_7zPITEhXtu4MBwnPD--Y3nj1H6-kI_ZG3ycoCXd1JrNVCCqVi4xLzphp-5tc7InCRmvXYh43yMmxa01wYMMLLUx7-bYw"
+      },
+      weap12: {
+        name: "Souvenir USP-S | Royal Blue WW",
+        
+        price: 4.43,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpoo6m1FBRp3_bGcjhQ09Svq4mFk_7zPITEhXtu5cB1g_zMyoD0mlOx5URpMD-gINPGcVRrNwrT_1K-l-y8jJO7v5ucyXVl7ygqsH2JzUaygRxSLrs4ksTxI5Q"
+      },
+      weap13: {
+        name: "Souvenir USP-S | Royal Blue FT",
+        
+        price: 3.52,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpoo6m1FBRp3_bGcjhQ09Svq4mFk_7zPITEhXtu5cB1g_zMyoD0mlOx5URpMD-gINPGcVRrNwrT_1K-l-y8jJO7v5ucyXVl7ygqsH2JzUaygRxSLrs4ksTxI5Q"
+      },
+      weap14: {
+        name: "Souvenir USP-S | Royal Blue MW",
+        
+        price: 15.47,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpoo6m1FBRp3_bGcjhQ09Svq4mFk_7zPITEhXtu5Mx2gv3--Y3nj1H6qhJoZWnzIYbBIQZoNVqE8la7w-y-jZC178ifmyRm7iVzt3vZnUO1hgYMMLJOVLO6Lw"
+      },
+      weap15: {
+        name: "Souvenir USP-S | Royal Blue FN",
+        
+        price: 160.56,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpoo6m1FBRp3_bGcjhQ09Svq4mFk_7zPITEhXtu5Mx2gv3--Y3nj1H6qhJoZWnzIYbBIQZoNVqE8la7w-y-jZC178ifmyRm7iVzt3vZnUO1hgYMMLJOVLO6Lw"
+      }
+    },
+    milspec: {
+      weap1: {
+        name: "Souvenir P2000 | Chainmail FT",
+        
+        price: 1.96,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovrG1eVcwg8zJfAJB5N2_mo2KnvvLPr7Vn35c18lwmO7Eu4iti1ew8ko_Z2n1do7DdVI5YlqFrgDrle_uhcXp787Mmno3vyNz4C7D30vgFIX9rS0"
+      },
+      weap2: {
+        name: "Souvenir P2000 | Chainmail MW",
+        
+        price: 1.95,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovrG1eVcwg8zJfAJB5N2_mo2KnvvLP7LWnn9u5MRjjeyPp9rw0FDhrkNtMW-ico7BIQ47Mw3T_gLowOjnhpbp6pvLwXJivCZ0sWGdwULfMeVBVg"
+      },
+      weap3: {
+        name: "Souvenir P2000 | Chainmail FN",
+        
+        price: 3.59,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovrG1eVcwg8zJfAJB5N2_mo2KnvvLP7LWnn9u5MRjjeyPp9rw0FDhrkNtMW-ico7BIQ47Mw3T_gLowOjnhpbp6pvLwXJivCZ0sWGdwULfMeVBVg"
+      },
+      weap4: {
+        name: "Souvenir MP9 | Dark Age FT",
+        
+        price: 2.21,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou6r8FAZt7P7NZTxO09W4mIGSqPrxN7LEm1Rd6dd2j6fC84r3ilGy_EFlYDzyItCRIwVtaQ2CqwK_kL-9hJO8tMnNzCRk6ydw-z-DyJDLGOKY"
+      },
+      weap4: {
+        name: "Souvenir MP9 | Dark Age MW",
+        
+        price: 2.44,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou6r8FAZt7P7NZTxO09W4mIGSqPv9NLPFqWdQ-sJ0xOiVrNqt2VK2-BJvajunJ4GdcgM_NQzS-AfoyLjmjZ7q6JXKyCZnu3Y8pSGKGi1hyIM"
+      },
+      weap4: {
+        name: "Souvenir MP9 | Dark Age FN",
+        
+        price: 2.66,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou6r8FAZt7P7NZTxO09W4mIGSqPv9NLPFqWdQ-sJ0xOiVrNqt2VK2-BJvajunJ4GdcgM_NQzS-AfoyLjmjZ7q6JXKyCZnu3Y8pSGKGi1hyIM"
+      }
+    },
+    restricted: {
+      weap1: {
+        name: "Souvenir CZ75-Auto | Chalice MW",
+        
+        price: 27.80,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpotaDyfgZf0v73YzJb7dCJmImMn-PLP7rDkW4f7px33evFrYmg2wblrRJsZm7xddLGcFQ5ZljV-le-ybvqgJG878mYn2wj5HevAX6yDA"
+      },
+      weap2: {
+        name: "Souvenir CZ75-Auto | Chalice FN",
+        
+        price: 26.88,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpotaDyfgZf0v73YzJb7dCJmImMn-PLP7rDkW4f7px33evFrYmg2wblrRJsZm7xddLGcFQ5ZljV-le-ybvqgJG878mYn2wj5HevAX6yDA"
+      },
+      weap3: {
+        name: "Souvenir Desert Eagle | Hand Cannon BS",
+        
+        price: 50.15,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposr-kLAtl7PLZTjVD4ti1lY6FmPnLO77QgHJu5MRjjeyPpt703ALnqUFvZDj6J4KWdFNrNF2B81G-ybjphsO96JWfnSBnu3Yl52GdwUJxcGeYOA"
+      },
+      weap4: {
+        name: "Souvenir Desert Eagle | Hand Cannon WW",
+        
+        price: 63.98,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposr-kLAtl7PLZTjVD4ti1lY6FmPnLPr7Vn35c18lwmO7Eu43z3wTjqhJuMm_0IYXEIQJrNQyD_gK7xbu6g5a-6JjOyHJi7iIh43_D30vg-AZcby4"
+      },
+      weap5: {
+        name: "Souvenir Desert Eagle | Hand Cannon FT",
+        
+        price: 50.00,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposr-kLAtl7PLZTjVD4ti1lY6FmPnLPr7Vn35c18lwmO7Eu43z3wTjqhJuMm_0IYXEIQJrNQyD_gK7xbu6g5a-6JjOyHJi7iIh43_D30vg-AZcby4"
+      },
+      weap6: {
+        name: "Souvenir Desert Eagle | Hand Cannon MW",
+        
+        price: 63.61,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposr-kLAtl7PLZTjVD4ti1lY6FmPnLP7LWnn9u5MRjjeyP8Nrw0AO3rhFuYGr0dYKXcVI8Y12EqVC5xu3rh8fqv8mfzXJlsyUq4GGdwUIWZtGMPw"
+      },
+      weap7: {
+        name: "Souvenir Desert Eagle | Hand Cannon FN",
+        
+        price: 262.00,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposr-kLAtl7PLZTjVD4ti1lY6FmPnLP7LWnn9u5MRjjeyP8Nrw0AO3rhFuYGr0dYKXcVI8Y12EqVC5xu3rh8fqv8mfzXJlsyUq4GGdwUIWZtGMPw"
+      }
+    },
+    classified: {
+      weap1: {
+        name: "Souvenir M4A1-S | Knight MW",
+        
+        price: 540.27,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhz2v_Nfz5H_uO3mb-GkuP1P6jummJW4NFOhujT8om72VGy-kJpZjr0JYSWdg9sYwmBrwS2wOnt1JXo7Zqfm3M2vCJ35HzbnQv330-9f4-Ixw"
+      },
+      weap2: {
+        name: "Souvenir M4A1-S | Knight FN",
+        
+        price: 546.82,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhz2v_Nfz5H_uO3mb-GkuP1P6jummJW4NFOhujT8om72VGy-kJpZjr0JYSWdg9sYwmBrwS2wOnt1JXo7Zqfm3M2vCJ35HzbnQv330-9f4-Ixw"
+      }
+    },
+    covert: {
+      weap1: {
+        name: "Souvenir AWP | Dragon Lore BS",
+        
+        price: 985.62,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot621FAR17P7NdTRH-t26q4SZlvD7PYTQgXtu4MBwnPD--Y3nj1H68hE-NW_2JNPAdVNtYV_Q_wO6le7u1pS-7pWfzCFnvCEq7SyOnBzi0wYMMLK7E03aCQ"
+      },
+      weap2: {
+        name: "Souvenir AWP | Dragon Lore WW",
+        
+        price: 1348.29,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot621FAR17P7NdTRH-t26q4SZlvD7PYTQgXtu5cB1g_zMyoD0mlOx5UM5ZWClcYCUdgU3Z1rQ_FK-xezngZO46MzOziQ1vSMmtCmIyxfkgx5SLrs4SgJFJKs"
+      },
+      weap3: {
+        name: "Souvenir AWP | Dragon Lore FT",
+        
+        price: 1799.87,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot621FAR17P7NdTRH-t26q4SZlvD7PYTQgXtu5cB1g_zMyoD0mlOx5UM5ZWClcYCUdgU3Z1rQ_FK-xezngZO46MzOziQ1vSMmtCmIyxfkgx5SLrs4SgJFJKs"
+      },
+      weap4: {
+        name: "Souvenir AWP | Dragon Lore MW",
+        
+        price: 4273.88,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot621FAR17P7NdTRH-t26q4SZlvD7PYTQgXtu5Mx2gv3--Y3nj1H6qBFvMWHyIo7Adw9raF6GrlK9lLi-jJO7tJ_JzyNh63F3sX_emUPkgQYMMLL2MDRAbQ"
+      },
+      weap5: {
+        name: "Souvenir AWP | Dragon Lore FN",
+        
+        price: 6750.00,
+        img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot621FAR17P7NdTRH-t26q4SZlvD7PYTQgXtu5Mx2gv3--Y3nj1H6qBFvMWHyIo7Adw9raF6GrlK9lLi-jJO7tJ_JzyNh63F3sX_emUPkgQYMMLL2MDRAbQ"
+      },
+    },
+ }   
   
 };
 
@@ -16487,8 +16851,10 @@ var totalKnivesOpened = 0;
 
 //cases -> case# -> rarity  -> weaponname, price, img
 //cases -> case1 -> milspec -> weap1.name
-
+// regular case rarities
 //blues = 70%, purple = 20%, pink = 5%, red = 2.50%, knife = 0.50%
+// package rarities
+// consumer = 80%, industrial = 10%, blue = 5%, purple = 3%, pink = 1.8%, red = 0.1%
 
 var rarityValue = {
   milspec: 0.75,
@@ -16498,25 +16864,49 @@ var rarityValue = {
   covert: 0.995
 };
 
+var packageRarityVal = {
+  consumer: 0.80,
+  industrial: 0.90,
+  milspec: 0.95,
+  restricted: 0.98,
+  classified: 0.998,
+  covert: 0.999
+};
+
 function randSkin() {
      var skinsArray = [];
      var randSkin = "";
      var randNum = Math.random().toFixed(3); //rounded to 3 places to make it slightly easier to get certain rarities
      var rarity = "";
      var identifier;
-	 
-     if (randNum <= rarityValue.milspec) {
-       rarity = "milspec";
-     } else if (randNum >= rarityValue.milspec && randNum <= rarityValue.restricted) {
-       rarity = "restricted";
-     } else if (randNum >= rarityValue.restricted && randNum <= rarityValue.classified) {
-       rarity = "classified";
-     } else if (randNum >= rarityValue.classified && randNum <= rarityValue.stattrak) {
-       rarity = "stattrak";
-     } else if (randNum >= rarityValue.stattrak && randNum <= rarityValue.covert) {
-       rarity = "covert";
-     } else {
-       rarity = "knife";
+	   if (currentCase === "case22") {
+       if (randNum <= packageRarityVal.consumer) {
+         rarity = "consumer";
+       } else if (randNum >= packageRarityVal.consumer && randNum <= packageRarityVal.industrial) {
+         rarity = "industrial"; 
+       } else if (randNum >= packageRarityVal.industrial && randNum <= packageRarityVal.milspec) {
+         rarity = "milspec";
+       } else if (randNum >= packageRarityVal.milspec && randNum <= packageRarityVal.restricted) {
+         rarity = "restricted";
+       } else if (randNum >= packageRarityVal.restricted && randNum <= packageRarityVal.classified) {
+         rarity = "classified";
+       } else if (randNum >= packageRarityVal.classified && randNum <= packageRarityVal.covert) {
+         rarity = "covert";
+       }
+     } else {      
+       if (randNum <= rarityValue.milspec) {
+         rarity = "milspec";
+       } else if (randNum >= rarityValue.milspec && randNum <= rarityValue.restricted) {
+         rarity = "restricted";
+       } else if (randNum >= rarityValue.restricted && randNum <= rarityValue.classified) {
+         rarity = "classified";
+       } else if (randNum >= rarityValue.classified && randNum <= rarityValue.stattrak) {
+         rarity = "stattrak";
+       } else if (randNum >= rarityValue.stattrak && randNum <= rarityValue.covert) {
+         rarity = "covert";
+       } else {
+         rarity = "knife";
+       }
      }
 
      function skinChoose(r) {
@@ -16548,19 +16938,20 @@ function randSkin() {
            knifeCase = "shadowst";
          } else if (currentCase === "case15") {
            knifeCase = "falchion";         
-		 } else if (currentCase === "case15") {
+		     } else if (currentCase === "case15") {
            knifeCase = "falchionst";
          } else if (currentCase === "case18") {
            knifeCase = "bowie";         
-		 } else if (currentCase === "case18") {
+		     } else if (currentCase === "case18") {
            knifeCase = "bowiest";
-		 } else if (currentCase === "case20" || currentCase === "case21" || currentCase === "case22") {
+		     } else if (currentCase === "case20" || currentCase === "case21") {
            knifeCase = "gamma";
          } else {
            knifeCase = "regular";
          }
-
-         skinsArray = Object.keys(knives[knifeCase]);
+         if (currentCase !== "case22") {
+           skinsArray = Object.keys(knives[knifeCase]);
+         }
 
          randSkin = skinsArray[Math.floor(skinsArray.length * Math.random())];
 
