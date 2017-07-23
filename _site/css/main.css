@@ -1,0 +1,19 @@
+.container {
+  width: 100%;
+  height: 100%;
+  align: center;
+}
+
+.ccTitle {
+  font-size: 1.7;
+  font-family: arial;
+  width: 100%;
+  height: auto;
+}
+
+.ccContent {
+  margin: 0 auto;
+  font-size: 1.25;
+  font-family: arial;
+  width: 60%;
+}
