@@ -9,3 +9,5 @@ The features I have added include:
 - Added all Gamma/Gamma2 knives
 - Added Gamma 2 case
 - Added Cobblestone Souvenir Package (drop chances & case price may need tweaking)
+- Autoclicker upgrade (upgrade cost may need tweaking)
+- 2 Upgrades now have limits, key prices can be reduced to $1 (30 upgrades), and inventory space has a max of 200 (150 upgrades)
