@@ -221,7 +221,6 @@ html, body {
 	width: 100%;
 	background: linear-gradient(rgba(0, 23, 40, 0.6),rgba(0, 23, 40, 0.6)), url("../images/sunburst.png");
 	background-position: center;
-	animation: infRotate 25s linear infinite;
 }
 
 .caseDisplay {
@@ -480,7 +479,7 @@ html, body {
 	float: right;
 }
 .bank {
-	display: block;
+	display: none;
 	position: absolute;
 	top: 0;
 	left: 0;
