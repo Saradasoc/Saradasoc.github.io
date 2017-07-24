@@ -343,7 +343,7 @@ html, body {
 	left: 0;
 	bottom: 395px;
 	width: 100%;
-  height: 60%;
+  height: 40%;
 }
 
 .jackpotTop {
@@ -656,7 +656,7 @@ html, body {
 .jackpotBottomContainer {
 	position: absolute;
 	bottom: 0;
-	height: 40%;
+	height: 60%;
 	width: 100%;
 	background: #151515;
 	border-top: 1px #25793B solid;
