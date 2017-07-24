@@ -1,11 +1,12 @@
 // CSGOClicker - Case CSGOClicker
 //money, inventory, jackpot
 var itemCounter = 0;
-var fps = 60;
+var fps = 15;
 
 var money = 7.50;
 var currentCase = "case1";
 var acceptMoneyPerClick = 0.10;
+var autoClickerLevel = 0;
 
 /*=========================Inventory============================*/
 //In inventory: weap skins
@@ -26,7 +27,6 @@ var bankCurrent = 0;
 
 var keyPrice = 2.50;
 
-var caseDiscount = 0;
 var keyDiscount = 0;
 
 var operationCases = {
@@ -17065,7 +17065,7 @@ $(".inventoryItemContainer").on("click", ".inventoryItem", function() {
 
 $("#case").click(function() {
   if (inventoryCurrent < inventoryMax) {
-    var price = (operationCases[currentCase]["price"] - caseDiscount) + (keyPrice - keyDiscount);
+    var price = (operationCases[currentCase]["price"]) + (keyPrice - keyDiscount);
     if (price >= 0 && money >= price) {
       money -= price;
       randSkin();
@@ -17209,6 +17209,8 @@ $("#upgradeTab").click(function() {
     $(".inventoryContainer").hide();
     $(".caseContainer").hide();
     $(".coinContainer").hide();
+    $(".upgrade4Limit").hide();
+    $(".upgrade3Limit").hide();
     $(".rightMain").css("bottom","135px");
     $(".tradeButtonContainer").show();
     if ($(".unboxing").css('display') !== 'block') {
@@ -17291,7 +17293,7 @@ $(".clearGameState").click(function() {
 function caseInfo() {
   $('#caseDisplayImage').attr("src", operationCases[currentCase]["img"] + "/240fx182f");
   $('#caseName').html(operationCases[currentCase]["name"]);
-  $('#casePrice').html("Case Price: $" + (operationCases[currentCase]["price"] - caseDiscount).toFixed(2) + "  |");
+  $('#casePrice').html("Case Price: $" + (operationCases[currentCase]["price"]).toFixed(2) + "  |");
   $('#keyPrice').html("Key Price: $" + (keyPrice - keyDiscount).toFixed(2));  
 }
 
@@ -17299,6 +17301,17 @@ function update() {
   $('#money').html("$" + money.toFixed(2));
   $('#inventorySpace').html(inventoryCurrent + "/" + inventoryMax);
 }
+
+function autoClicker() {
+  var autoClickerFreq = 100;
+  
+    setTimeout(function() {
+    if(autoClickerLevel > 0) {  
+      money+= autoClickerLevel/autoClickerFreq;
+    }
+    autoClicker();
+  }, 1000/autoClickerFreq)
+}  
 
 function caseModalDraw(name, img) {
   $(".modalMain").html("");
@@ -17340,14 +17353,13 @@ $(".stackingUpgradeContainer").on("click", ".upgrade", function() {
   var name = stackingUpgrades[this.id]["name"];
   var desc = stackingUpgrades[this.id]["desc"];
 
-  if (money >= stackingUpgrades[this.id]["price"]) {
+  if (money >= stackingUpgrades[this.id]["price"] && stackingUpgrades[this.id]["limit"] > stackingUpgradesPurchased[this.id]) {
     money -= stackingUpgrades[this.id]["price"];
-    stackingUpgrades[this.id]["price"] = upgradeMultiplier(stackingUpgrades[this.id]["basePrice"], stackingUpgradesPurchased[this.id]);
-    
+    stackingUpgrades[this.id]["price"] = upgradeMultiplier(stackingUpgrades[this.id]["basePrice"], stackingUpgradesPurchased[this.id]);  
     keyDiscount += stackingUpgrades[this.id]["kp"];
-    caseDiscount += stackingUpgrades[this.id]["cp"];
     inventoryMax += stackingUpgrades[this.id]["is"];
-	acceptMoneyPerClick += stackingUpgrades[this.id]["mc"];
+	  acceptMoneyPerClick += stackingUpgrades[this.id]["mc"];
+    autoClickerLevel += stackingUpgrades[this.id]["af"];
     stackingUpgradesPurchased[this.id] += 1;
   }
   caseInfo();
@@ -17357,10 +17369,10 @@ $(".stackingUpgradeContainer").on("click", ".upgrade", function() {
 
 
 var stackingUpgrades = {
-  upgrade1: {name: "Inventory Space", desc: "+1 to your max inventory space.", basePrice: 15, price: 15, cp: 0.00, kp: 0.00, is: 1, mc: 0.00, img: "https://steamcommunity-a.akamaihd.net/economy/image/U8721VM9p9C2v1o6cKJ4qEnGqnE7IoTQgZI-VTdwyTBeimAcIoxXpgK8bPeslY9pPJIvB5IWW2-452kaM8heLSRgleGAr7BMx-94b6MohOf-Xwsn7-USVDXgHhOG1zPDeLmsxwRtYpItIUb2wskZ6I0FWp9DdsKkOtQslw/100fx100f"},
-  upgrade2: {name: "Key Discount", desc: "Discount Key Prices", basePrice: 150, price: 150, cp: 0.00, kp: 0.05, is: 0, mc: 0.00, img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXX7gNTPcUlrBpNQ0LvROW-0vDYVkRLNhRStbOkJzgxnaXLdDkTuNnmzYbak6byYb2ExGoHvJ1z2b7Fp9igjlflrUJoYmCiJ4KLMlhpukSlLYY/100fx100f"},
-  upgrade3: {name: "More Money", desc: "More money per click +10", basePrice: 500, price: 500, cp: 0.00, kp: 0.00, is: 0, mc: 0.10, img: "https://steamcommunity-a.akamaihd.net/economy/image/U8721VM9p9C2v1o6cKJ4qEnGqnE7IoTQgZI-VTdwyTBeimAcIoxXpgK8bPeslY9pPJIvB5IWW2-452kaM8heLSRgleGAr7BMx-94b6MohOf-Xwsn7-USVDXgHhOG1zPDeLmsxwRtYpItIUb2wskZ6I0FWp9DdsKkOtQslw/100fx100f"},
-  upgrade4: {name: "Case Discount", desc: "Discount Case Prices", basePrice: 150, price: 150, cp: 0.05, kp: 0.00, is: 0, mc: 0.00, img: "https://steamcommunity-a.akamaihd.net/economy/image/U8721VM9p9C2v1o6cKJ4qEnGqnE7IoTQgZI-VTdwyTBeimAcIoxXpgK8bPeslY9pPJIvB5IWW2-452kaM8heLSRgleGAr7BMx-94b6MohOf-Xwsn7-USVDXgHhOG1zPDeLmsxwRtYpItIUb2wskZ6I0FWp9DdsKkOtQslw/100fx100f"}
+  upgrade1: {name: "Inventory Space", desc: "+1 to your max inventory space.", basePrice: 15, price: 15, limit: 150, kp: 0.00, is: 1, mc: 0.00, af: 0.00, img: "https://steamcommunity-a.akamaihd.net/economy/image/U8721VM9p9C2v1o6cKJ4qEnGqnE7IoTQgZI-VTdwyTBeimAcIoxXpgK8bPeslY9pPJIvB5IWW2-452kaM8heLSRgleGAr7BMx-94b6MohOf-Xwsn7-USVDXgHhOG1zPDeLmsxwRtYpItIUb2wskZ6I0FWp9DdsKkOtQslw/100fx100f"},
+  upgrade2: {name: "Key Discount", desc: "Discount Key Prices", basePrice: 150, price: 150, limit: 30, kp: 0.05, is: 0, mc: 0.00, af: 0.00, img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXX7gNTPcUlrBpNQ0LvROW-0vDYVkRLNhRStbOkJzgxnaXLdDkTuNnmzYbak6byYb2ExGoHvJ1z2b7Fp9igjlflrUJoYmCiJ4KLMlhpukSlLYY/100fx100f"},
+  upgrade3: {name: "More Money", desc: "More money per click +10 cents", basePrice: 300, price: 300, limit: 99999, kp: 0.00, is: 0, mc: 0.10, af: 0.00, img: "https://steamcommunity-a.akamaihd.net/economy/image/U8721VM9p9C2v1o6cKJ4qEnGqnE7IoTQgZI-VTdwyTBeimAcIoxXpgK8bPeslY9pPJIvB5IWW2-452kaM8heLSRgleGAr7BMx-94b6MohOf-Xwsn7-USVDXgHhOG1zPDeLmsxwRtYpItIUb2wskZ6I0FWp9DdsKkOtQslw/100fx100f"},
+  upgrade4: {name: "Auto-Clicker", desc: "Automatically clicks +10 cents", basePrice: 200, price: 200, limit: 99999, kp: 0.00, is: 0, mc: 0.00, af: 0.1, img: "https://steamcommunity-a.akamaihd.net/economy/image/U8721VM9p9C2v1o6cKJ4qEnGqnE7IoTQgZI-VTdwyTBeimAcIoxXpgK8bPeslY9pPJIvB5IWW2-452kaM8heLSRgleGAr7BMx-94b6MohOf-Xwsn7-USVDXgHhOG1zPDeLmsxwRtYpItIUb2wskZ6I0FWp9DdsKkOtQslw/100fx100f"}
 };
 
 var stackingUpgradesPurchased = {
@@ -17386,7 +17398,11 @@ function drawStackingUpgrades() {
         $(upgrade).find(".upgradePrice").html("$" + stackingUpgrades[upgrade]["price"].toFixed(2));
         $(upgrade).find(".upgradeAmount").html(stackingUpgrades[upgrade]);
       }
-      $(".stackingUpgradeContainer").append('<div class="upgrade" id="' + upgrade + '"> <div class="upgradePicture"> <img src="' + stackingUpgrades[upgrade]["img"] + '" id="upgradePicture"></div> <div class="upgradeInfo"> <div class="upgradeName">' + stackingUpgrades[upgrade]["name"] + '</div> <div class="upgradeDesc">' + stackingUpgrades[upgrade]["desc"] + '</div> <div class="upgradePriceLabel">Price: <span class="upgradePrice">' + "$" + stackingUpgrades[upgrade]["price"].toFixed(2) + '</span> </div> <div class="upgradeAmountLabel">Amount: <span class="upgradeAmount">'+ stackingUpgradesPurchased[upgrade] + '</span> </div> </div> </div>');
+      $(".stackingUpgradeContainer").append('<div class="upgrade" id="' + upgrade + '"> <div class="upgradePicture"> <img src="' + stackingUpgrades[upgrade]["img"] 
+        + '" id="upgradePicture"></div> <div class="upgradeInfo"> <div class="upgradeName">' + stackingUpgrades[upgrade]["name"] 
+        + '</div> <div class="upgradeDesc">' + stackingUpgrades[upgrade]["desc"] + '</div> <div class="upgradePriceLabel">Price: <span class="upgradePrice">' 
+        + "$" + stackingUpgrades[upgrade]["price"].toFixed(2) + '</span> </div> <div class="upgradeAmountLabel">Amount: <span class="upgradeAmount">'+ stackingUpgradesPurchased[upgrade] 
+        + '</span><span class="' + upgrade + 'Limit">/' +  stackingUpgrades[upgrade]["limit"] + '</span></div> </div> </div>');
     }
   }
 }
@@ -17395,9 +17411,9 @@ function drawStackingUpgrades() {
 function buyUpgrade(id) {
   stackingUpgrades[id]["price"] = upgradeMultiplier(stackingUpgrades[id]["basePrice"], stackingUpgradesPurchased[id]);
   keyDiscount += stackingUpgrades[id]["kp"];
-  caseDiscount += stackingUpgrades[id]["cp"];
   inventoryMax += stackingUpgrades[id]["is"];
   acceptMoneyPerClick += stackingUpgrades[id]["mc"];
+  autoClickerLevel += stackingUpgrades[id]["af"];
   caseInfo();
 }
 
@@ -18231,5 +18247,6 @@ function init() {
   backgroundCheck();
   drawCases();
   drawStackingUpgrades();
+  autoClicker();
 }
 init();
