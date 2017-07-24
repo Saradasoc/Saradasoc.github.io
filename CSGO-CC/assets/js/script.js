@@ -17089,6 +17089,11 @@ $(".modalMain").on("click", ".modalClose", function() {
   $('.modalWindow').toggle();
 });
 
+$('#acceptButton').bind('touchend', function(e) {
+  e.preventDefault(); 
+  $(this).click();
+});
+
 $("#acceptButton").click(function() {
   money += acceptMoneyPerClick;  
 });
@@ -18141,7 +18146,7 @@ function saveGameState() {
   var string = {
     "money": money,
     "inventory": inventory,
-	"bank": bank,
+	  "bank": bank,
     "itemCounter": itemCounter,
     "currentCase": currentCase,
     "stackingUpgradesPurchased": stackingUpgradesPurchased
@@ -18156,17 +18161,17 @@ function loadGameState() {
     inventoryClear();
 	bankClear();
     var saveGame = JSON.parse(localStorage.getItem("savegame"));
-    //console.log(saveGame);
+    console.log(saveGame);
     money = saveGame["money"];
     inventory = saveGame["inventory"];
-	bank = saveGame["bank"];
+	  bank = saveGame["bank"];
     inventoryCurrent = Object.keys(inventory).length;
     itemCounter = saveGame["itemCounter"];
     currentCase = saveGame["currentCase"];
     stackingUpgradesPurchased = saveGame["stackingUpgradesPurchased"];
     drawInventory();
-	drawBankContents();
-	bankValue();
+	  drawBankContents();
+	  bankValue();
     inventoryValue();
     skinOverflow();
     console.log("Game Save found. Successfully loaded.");
@@ -18219,7 +18224,6 @@ var x =  prompt("Enter a Value","0")
 		}
 	}
 }
-
 
 function init() {
   loadGameState();
