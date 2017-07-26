@@ -1450,58 +1450,12 @@ div.knife {
 	overflow: hidden;
 }
 .sellCheap {
-  font-size: 2.5em;
-  font-family: 'Rajdhani', sans-serif;
-  text-align: center;
-  line-height: 85px;
-  color: #fff;
-  position: absolute;
-  float: right;
-  bottom: 0;
-  right: 0;
-  margin: 0 17px 10px 0;
-  width: 87px;
-  height: 87px;
-  background: linear-gradient(#1d7751, #0e382c);
-  border: 3px #25793b solid;
-  border-radius: 5px;
-  text-shadow: 0 0 20px rgba(255,255,255,0.3);
-  transition: .1s;
-  transform: scale(1);
-  cursor: pointer;
-  -webkit-user-select: none;
-  box-shadow: 0 0 25px rgba(0,117,9,0.5);
-  overflow: hidden;
-}
-.sellCheap:hover {
-  text-shadow: 0 0 20px rgba(255,255,255,0.5);
-  transform: scale(1.05);
-}
-
-.sellCheap:active {
-  background: linear-gradient(#1f8258, #114435);
-  text-shadow: 0 0 20px rgba(255,255,255,0.5);
-  transform: scale(1);
-  box-shadow: 0 0 30px rgba(43,137,68,0.5);
-}
-
-.sellCheap:after {
-  content: "";
-  position: relative;
-  top: -120px;
-  left: -90px;
-  display: block;
-  width: 35px;
-  height: 150px;
-  background: rgba(255, 255, 255, 0.5);
-  transform: rotate(35deg);
-  -webkit-filter: blur(20px);
-  transition: none;
-}
-
-.sellCheap:hover:after {
-  left: 400px;
-  transition: .3s ease-in-out;
+	color: #fff;
+	text-decoration: none;
+	margin-right: 50px;
+	line-height: 50px;
+	float: right;
+	cursor: pointer;
 }
 
 .tradeButton {
