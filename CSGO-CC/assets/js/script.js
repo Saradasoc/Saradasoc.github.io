@@ -17010,7 +17010,7 @@ function itemDisp(name, price, img) {
 function drawItem(array, rarity) {
     var name = array[0];
     var price = "$" + array[1].toFixed(2);
-    var img = array[2] + "/70fx70f";
+    var img = array[2];
 
     $(".inventoryItemContainer").append('<div class="inventoryItem ' + rarity 
     + '" id="'+ 'item' + itemCounter 
@@ -17796,7 +17796,7 @@ function jackpotStart() {
       var item = eval(atob(pot[keys[i]]));
       var name = item["name"];
       var price = item["price"].toFixed(2);
-      var img = item["img"] + "/70fx70f";
+      var img = item["img"];
       var condition = getCondition(name);
 
       $("#playerDeposit").append('<div class="inventoryItem ' + rarity 
@@ -17912,7 +17912,7 @@ function jackpotStart() {
       function drawBotItem(array, rarity) {
           var name = array[0];
           var price = "$" + array[1].toFixed(2);
-          var img = array[2] + "/70fx70f";
+          var img = array[2];
           var rarity = rarity;
           var botSelector = "deposit" + depositTicker;
           var condition = getCondition(name);
@@ -18020,7 +18020,7 @@ function jackpotStart() {
       var item = eval(atob(pot[keys[i]]));
       var name = item["name"];
       var price = "$" + item["price"].toFixed(2);
-      var img = item["img"] + "/70fx70f";
+      var img = item["img"];
 
       $(".winnerModalSkinContainer").append('<div class="inventoryItem ' + rarity + '" id="'+ keys[i] +'" title="' + name + '"><div class="itemPrice">' + price + '</div> <img src=' + img + '> </div>');
     }
