@@ -1237,6 +1237,12 @@ html, body {
 	line-height: 15px;
 	color: #fff;
 }
+.itemCondition {
+  font-size: 13px;
+  position: absolute;
+  top: 0;
+  color: #fff;
+}
 
 .inventoryItem {
 	position: relative;
