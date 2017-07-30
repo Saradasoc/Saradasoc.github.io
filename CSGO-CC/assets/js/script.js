@@ -26814,7 +26814,6 @@ function randSkin() {
          inventory["item" + itemCounter] = window.btoa(toEncode);
          
          rarity = "knife";
-         drawItem(itemDisp(identifier.name, identifier.price, identifier.img), rarity);
          drawPlayerItem("inventoryItemContainer", identifier.name, identifier.price, identifier.img, "item" + itemCounter, rarity); 
 
          if (popup) {
