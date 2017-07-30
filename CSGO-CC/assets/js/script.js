@@ -26938,7 +26938,7 @@ $(".inventoryItemContainer").on("click", ".inventoryItem", function() {
   }
 });
 
-$(".inventoryItemContainer").on("taphold", ".inventoryItem", function() {
+$(".inventoryItem").on("taphold", function() {
   $(this).tooltip('show');
 });
 
