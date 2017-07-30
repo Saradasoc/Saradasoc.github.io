@@ -27919,6 +27919,12 @@ $(".tt").on({ mouseenter: function() {
     }, mouseleave: function() {
         $(".tooltipAnchor").hide();
         $(".tooltipAnchor").html("");
+    }, touchstart: function(e) {
+      e.preventDefault();
+      $(".tooltipAnchor").html($(this).attr("data-tt"));
+      var ele = $(this).offset();
+      $(".tooltipAnchor").css({top: ele.top - 28, left: ele.left - 100 + ($(this).width() / 2)});
+      $(".tooltipAnchor").show();
     }
 });
 
