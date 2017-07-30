@@ -26778,7 +26778,7 @@ function randSkin() {
          inventory["item" + itemCounter] = window.btoa(toEncode);
          
 
-         drawItem(itemDisp(identifier.name, identifier.price, identifier.img), rarity);
+         drawPlayerItem("inventoryItemContainer", identifier.name, identifier.price, identifier.img, "item" + itemCounter, rarity);
 
          if (popup) {
            caseModalDraw(identifier.name, identifier.img);
@@ -26815,6 +26815,7 @@ function randSkin() {
          
          rarity = "knife";
          drawItem(itemDisp(identifier.name, identifier.price, identifier.img), rarity);
+         drawPlayerItem("inventoryItemContainer", identifier.name, identifier.price, identifier.img, "item" + itemCounter, rarity); 
 
          if (popup) {
            caseModalDraw(identifier.name, identifier.img);
@@ -26832,7 +26833,7 @@ function randSkin() {
          var toEncode = "cases['" + currentCase + "']" + "['" + r + "']" + "['" + randSkin + "']";
          inventory["item" + itemCounter] = window.btoa(toEncode);
          
-         drawItem(itemDisp(identifier.name, identifier.price, identifier.img), rarity); 
+         drawPlayerItem("inventoryItemContainer", identifier.name, identifier.price, identifier.img, "item" + itemCounter, rarity); 
 
          if (popup) {
            caseModalDraw(identifier.name, identifier.img);
@@ -26863,18 +26864,6 @@ function itemDisp(name, price, img) {
   return temp;
 }
 
-function drawItem(array, rarity) {
-    var name = array[0];
-    var price = "$" + array[1].toFixed(2);
-    var img = array[2];
-
-    $(".inventoryItemContainer").append('<div class="inventoryItem ' + rarity 
-    + '" id="'+ 'item' + itemCounter 
-    +'" title="' + name 
-    + '"><div class="itemPrice">' + price 
-    + '</div> <img src=' + img + '> </div>');
-}
-
 function inventoryClear() {
   inventory = {};
   $('.inventoryItemContainer').html("");
@@ -26894,9 +26883,6 @@ function drawInventory(container, containerType) {
   for (var i = 0; i < keys.length; i++) {
     var item = eval(atob(containerType[keys[i]]));
     var rarity = item["rarity"];
-    if (rarity === "regular" || rarity === "butterst" || rarity === "falchionst" || rarity === "chromast" || rarity === "chroma" || rarity === "huntsman" || rarity === "gamma" || rarity === "huntst" || rarity === "butterfly" || rarity === "shadow" || rarity === "shadowst" || rarity === "bowie" || rarity === "bowiest" || rarity === "falchion") {
-      rarity = "knife";
-    }
     var name = item["name"];
     var price = "$" + item["price"].toFixed(2);
     var img = item["img"];
@@ -26910,12 +26896,8 @@ function drawInventory(container, containerType) {
   }
 }
 
-function drawPlayerItem(container, containerType, name, price, img, id, rarity) {
-  var rarity = rarity
-  if (rarity === "regular" || rarity === "falchionst" || rarity === "butterst" || rarity === "chromast" || rarity === "chroma" || rarity === "huntsman" || rarity === "gamma" || rarity === "huntst" || rarity === "butterfly" || rarity === "bowie" || rarity === "bowiest" || rarity === "shadow" || rarity === "shadowst" || rarity === "falchion") {
-    rarity = "knife";
-  }
-  
+function drawPlayerItem(container, name, price, img, id, rarity) {
+  var rarity = rarity  
   var name = name;
   var price = "$" + price.toFixed(2);
   var img = img;
@@ -26958,7 +26940,6 @@ $(".inventoryItemContainer").on("click", ".inventoryItem", function() {
 
 
 $("#case").click(function() {
-  console.log(inventoryMax);
   if (inventoryCurrent < inventoryMax) {
     var price = (operationCases[currentCase]["price"]) + (keyPrice - keyDiscount);
     if (operationCases[currentCase]["name"] === "Cobblestone Souvenir Package") {
@@ -27136,6 +27117,8 @@ $("#upgradeTab").click(function() {
 $("#jackpotTab").click(function() {
   if (jackpotUnlocked) {
     if ($(".jackpotRightContainer").css('display') == 'none') {
+      $(".jackpotRightToBet").html("");
+      $(".jackpotRightPlayer").html("");
       drawInventory("jackpotRightPlayer", inventory);
       $(this).addClass("active");
 	    $("#bankTab").removeClass("active");
@@ -27362,7 +27345,7 @@ $(".bankRightPlayerInventory").on("click", ".inventoryItem", function() {
       var item = eval(atob(inventory[this.id]));
       depositSkinsValue += item.price;
       bankTemp[this.id] = inventory[this.id];
-      drawPlayerItem("bankRightToDeposit", inventory, item.name, item.price, item.img, this.id, item.rarity);
+      drawPlayerItem("bankRightToDeposit", item.name, item.price, item.img, this.id, item.rarity);
       updateDepositInfo();
       $(this).remove();
     }
@@ -27407,7 +27390,7 @@ $(".bankRightToDeposit").on("click", ".inventoryItem", function() {
   if (inventoryCurrent <= inventoryMax) {
     if (bankTemp[this.id]) {
       var item = eval(atob(bankTemp[this.id]));
-      drawPlayerItem("bankRightPlayerInventory", inventory, item.name, item.price, item.img, this.id, item.rarity);
+      drawPlayerItem("bankRightPlayerInventory", item.name, item.price, item.img, this.id, item.rarity);
       depositSkinsValue -= item.price;
       updateDepositInfo();
       delete bankTemp[this.id];
@@ -27440,7 +27423,7 @@ $(".bankItemContainer").on("click", ".inventoryItem", function() {
     if (bank[this.id]) {
       var item = eval(atob(bank[this.id]));
       inventory[this.id] = bank[this.id];
-      drawPlayerItem("bankRightPlayerInventory", inventory, item.name, item.price, item.img, this.id, item.rarity);
+      drawPlayerItem("bankRightPlayerInventory", item.name, item.price, item.img, this.id, item.rarity);
 	    bankCurrent -= 1;
 	    inventoryCurrent += 1;
       delete bank[this.id];
@@ -27468,7 +27451,7 @@ $(".jackpotRightPlayer").on("click", ".inventoryItem", function() {
         var item = eval(atob(inventory[this.id]));
        
         jackpotInventory[this.id] = inventory[this.id];
-        drawPlayerItem("jackpotRightToBet", inventory, item.name, item.price, item.img, this.id, item.rarity);
+        drawPlayerItem("jackpotRightToBet", item.name, item.price, item.img, this.id, item.rarity);
         swapSkins += 1;
         swapSkinsValue += item.price;
         updateSwapInfo();
@@ -27484,7 +27467,7 @@ $(".jackpotRightToBet").on("click", ".inventoryItem", function() {
       var item = eval(atob(jackpotInventory[this.id]));
      
       inventory[this.id] = jackpotInventory[this.id];
-      drawPlayerItem("jackpotRightPlayer", inventory, item.name, item.price, item.img, this.id, item.rarity);
+      drawPlayerItem("jackpotRightPlayer", item.name, item.price, item.img, this.id, item.rarity);
       swapSkins -= 1;
       swapSkinsValue -= item.price;
       updateSwapInfo();
@@ -27905,7 +27888,6 @@ $(window).on('resize', function(){
 });
 
 function skinOverflow() {
-  console.log(inventoryMax);
   if (inventoryCurrent > inventoryMax) {
     $('.mainInfoLabelWarning').css('display','inline-block');
   } else if ($(".mainInfoLabelWarning:visible") && inventoryCurrent <= inventoryMax) {
