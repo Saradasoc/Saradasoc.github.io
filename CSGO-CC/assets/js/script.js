@@ -26981,11 +26981,12 @@ $(".sellCheap").click(function() {
 	var item = eval(atob(inventory[inventoryKeys[i]]));
     if (item && item['price'] < 10) {
 	  inventoryCurrent -= 1;
-      money += (item['price']);
-      delete inventory[inventoryKeys[i]];
-      $('#' + inventoryKeys[i]).remove();
-      inventoryValue();
-      skinOverflow();
+    money += (item['price']);
+    delete inventory[inventoryKeys[i]];
+    console.log(inventoryKeys[i]);
+    $('#' + inventoryKeys[i]).remove();
+    inventoryValue();
+    skinOverflow();
     }  
   }
   
@@ -27859,20 +27860,9 @@ function jackpotStart() {
     if (inventoryCurrent < inventoryMax) {
       $(".winnerModalWarnMessage").toggle();
     }
-
-    var keys = Object.keys(pot);
-    for (var i = 0; i < keys.length; i++) {
-      var rarity = atob(pot[keys[i]]).replace(/\[[^\[]*$/g, "").match(/\[[^\[]*$/g).toString().match(/\b\w*\b/)[0];
-      if (rarity === "regular" || rarity === "bowie" || rarity === "bowiest" || rarity === "falchionst" || rarity === "butterst" || rarity === "chromast" || rarity === "chroma" || rarity === "gamma" || rarity === "huntsman" || rarity === "huntst" || rarity === "butterfly" || rarity === "shadow" || rarity === "shadowst" || rarity === "falchion") {
-        rarity = "knife";
-      }
-      var item = eval(atob(pot[keys[i]]));
-      var name = item["name"];
-      var price = "$" + item["price"].toFixed(2);
-      var img = item["img"];
-
-      $(".winnerModalSkinContainer").append('<div class="inventoryItem ' + rarity + '" id="'+ keys[i] +'" title="' + name + '"><div class="itemPrice">' + price + '</div> <img src=' + img + '> </div>');
-    }
+    drawInventory("winnerModalSkinContainer", pot);
+    drawInventory("inventoryItemContainer", inventory);
+    console.log(inventory);
     $('.modalWindow').toggle();
   }
 }
