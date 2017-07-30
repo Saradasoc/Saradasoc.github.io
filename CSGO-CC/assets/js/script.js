@@ -26892,7 +26892,7 @@ function drawInventory(container, containerType) {
     +'" title="' + name 
     + '"><div class="itemCondition">' + condition
     + '</div> <div class="itemPrice">' + price 
-    + '</div> <img src=' + img + '> </div>');
+    + '</div> <img src=' + img + '><span class="itemTooltip">' + name + '</span></div>');
   }
 }
 
@@ -26937,11 +26937,6 @@ $(".inventoryItemContainer").on("click", ".inventoryItem", function() {
     skinOverflow();
   }
 });
-
-$(".inventoryItem").on("taphold", function() {
-  $(this).tooltip('show');
-});
-
 
 $("#case").click(function() {
   if (inventoryCurrent < inventoryMax) {
