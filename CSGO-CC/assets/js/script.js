@@ -27414,6 +27414,8 @@ function depositItems() {
       } 
     }
   }
+  depositSkinsValue = 0;
+  updateDepositInfo();
   drawInventory("bankItemContainer", bank);
   saveGameState();  
 }
