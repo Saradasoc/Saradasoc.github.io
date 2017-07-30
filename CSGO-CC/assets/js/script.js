@@ -26938,6 +26938,10 @@ $(".inventoryItemContainer").on("click", ".inventoryItem", function() {
   }
 });
 
+$(".inventoryItemContainer").on("taphold", ".inventoryItem", function() {
+  $(this).tooltip('show');
+});
+
 
 $("#case").click(function() {
   if (inventoryCurrent < inventoryMax) {
@@ -27896,20 +27900,6 @@ function skinOverflow() {
     $('.mainInfoLabelWarning').css('display','none');
   }
 }
-/*
-$(".inventoryContainer").on({mouseenter: function() {
-  var item = eval(atob(inventory[this.id]));
-  var name = item["name"];
-  $(".tooltipAnchor").html(this.title);
-  $(".tooltipAnchor").show();
-  $(".tooltipAnchor").stop().animate({opacity:1}, 400);
-}, mouseleave: function() {
-  $(".tooltipAnchor").css("opacity", 0);
-  $(".tooltipAnchor").hide();
-}}, ".inventoryItem").mousemove(function() {
-    $(".tooltipAnchor").css({top: event.clientY - 125, left: event.clientX - 100});
-});
-*/
 
 $(".tt").on({ mouseenter: function() {
         $(".tooltipAnchor").html($(this).attr("data-tt"));
@@ -27919,12 +27909,6 @@ $(".tt").on({ mouseenter: function() {
     }, mouseleave: function() {
         $(".tooltipAnchor").hide();
         $(".tooltipAnchor").html("");
-    }, touchstart: function(e) {
-      e.preventDefault();
-      $(".tooltipAnchor").html($(this).attr("data-tt"));
-      var ele = $(this).offset();
-      $(".tooltipAnchor").css({top: ele.top - 28, left: ele.left - 100 + ($(this).width() / 2)});
-      $(".tooltipAnchor").show();
     }
 });
 
