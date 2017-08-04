@@ -19,6 +19,7 @@ var popup = false;
 var inventory = {};
 var bank = {};
 var jackpotInventory = {};
+var pot = {};
 var collection = {};
 
 var inventoryMax = 50;
@@ -26978,16 +26979,16 @@ $("#acceptButton").click(function() {
 $(".sellCheap").click(function() {
   var inventoryKeys = Object.keys(inventory);
   for (var i = 0; i < inventoryKeys.length; i++) {
-	var item = eval(atob(inventory[inventoryKeys[i]]));
+	  var item = eval(atob(inventory[inventoryKeys[i]]));
     if (item && item['price'] < 10) {
-	  inventoryCurrent -= 1;
-    money += (item['price']);
-    delete inventory[inventoryKeys[i]];
-    console.log(inventoryKeys[i]);
-    $('#' + inventoryKeys[i]).remove();
-    inventoryValue();
-    skinOverflow();
-    }  
+	    inventoryCurrent -= 1;
+      money += (item['price']);
+      delete inventory[inventoryKeys[i]];
+      console.log(inventoryKeys[i]);
+      $('#' + inventoryKeys[i]).remove();
+      inventoryValue();
+      skinOverflow();
+    }   
   }
   
   // For extracting database to json file
@@ -27576,7 +27577,6 @@ function jackpotStart() {
   jackpotInProgress = true;
   var skins = 0;
   var maxSkins = 150;
-  var pot = {};
   var players = [];
   var botTickets = {
     bot1: 0,
@@ -27813,6 +27813,7 @@ function jackpotStart() {
       console.log("You Win!");
       inventoryCurrent += Object.keys(pot).length;
       $.extend(inventory, pot);
+      pot = {};
       skinOverflow();
       if (winnerModal) {
         winnerModalDraw();
@@ -27860,7 +27861,6 @@ function jackpotStart() {
     if (inventoryCurrent < inventoryMax) {
       $(".winnerModalWarnMessage").toggle();
     }
-    drawInventory("winnerModalSkinContainer", pot);
     drawInventory("inventoryItemContainer", inventory);
     console.log(inventory);
     $('.modalWindow').toggle();
