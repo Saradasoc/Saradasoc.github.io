@@ -12,3 +12,5 @@ The features I have added include:
 - Autoclicker upgrade (upgrade cost may need tweaking)
 - 2 Upgrades now have limits, key prices can be reduced to $1 (30 upgrades), and inventory space has a max of 200 (150 upgrades)
 - Item conditions shown on thumbnails
+
+This is no longer being worked on. o/
